@@ -12,10 +12,14 @@ export const genre = {
     },
     effects: (dispatch) => ({
         async getAll() {
-            const data = await fetch('http://localhost:8080/genres')
-                .then(res => res.json())
-                .catch(error => console.log('Authorization failed: ' + error.message));
-            this.setData(data.data);
+            try {
+                const data = await fetch('http://localhost:8080/genres')
+                    .then(res => res.json())
+                    .catch(error => console.log('Authorization failed: ' + error.message));
+                this.setData(data.data);
+            } catch (error) {
+                return null;
+            }
         },
     }),
 };
