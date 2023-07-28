@@ -1,0 +1,42 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    /* max-width: 1440px; */
+    background-color: black;
+}
+.inform {
+    color: white;
+    font-size: 37px;
+    font-family: "Roboto", sans-serif;
+    text-align: center;
+}
+.inform2 {
+    color: #d1d0cf;
+    font-size: 16px;
+    font-family: "Roboto", sans-serif;
+    text-align: center;
+}
+.img-box {
+    width: 100%;
+    .image{
+        margin-top: 60px;
+        margin-left: 50%;
+        transform: translateX(-50%);
+        width: 40%;
+        height: 40%;
+        object-fit: cover;
+    }
+}
+.button {
+    padding: 10px;
+}
+@media only screen and (max-width: 850px) {
+    .image {
+        width: 100%;
+    }
+}
+.button {
+    margin: 0 auto;
+    padding: 10px;
+}
