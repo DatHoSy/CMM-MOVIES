@@ -9,8 +9,6 @@ import imgtrailer from "assets/imgtrailer.svg"
 import dot from "assets/dot.svg"
 import Line4 from "assets/Line4.svg"
 import React, { useState } from "react";
-import Carousel, { slidesToShowPlugin } from '@brainhubeu/react-carousel';
-import { slidesToScrollPlugin } from '@brainhubeu/react-carousel';
 import { Img } from "components/Img"
 import { CardVideoTrailer } from "components/CardVideoTrailer"
 import epidode2 from "assets/episode2.svg";
@@ -25,21 +23,12 @@ import avatar from "assets/avatarcmt.svg";
 import redline from "assets/redline.png"
 
 
-import '@brainhubeu/react-carousel/lib/style.css';
-//import "./styles.css";
-
-// import "slick-carousel/slick/slick.css";
-// import "slick-carousel/slick/slick-theme.css";
-
-// import Slider from "react-slick";
-
 import styled from 'styled-components';
 import { useDispatch, useSelector } from "react-redux"
 import { Link, useNavigate } from "react-router-dom"
 import { useEffect } from "react"
 import { Footer } from "components/Footer"
 import { Button } from "components/Button"
-//import { Slider } from "components/Slider"
 
 
 
