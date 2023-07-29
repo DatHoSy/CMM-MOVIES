@@ -53,7 +53,7 @@ export const Genres = () => {
         let newData = [];
         rawDataMovies.map(data => {
             data.genreName.map(genre => {
-                if (genre.toUpperCase() == value) {
+                if (genre.toUpperCase() == value.toUpperCase()) {
                     newData.push(data);
                 }
             })
