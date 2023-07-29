@@ -1,5 +1,5 @@
 import axios from "axios";
-
+import { URL } from "./evm";
 export const movie = {
   state: {
     movies: [],
@@ -29,7 +29,7 @@ export const movie = {
   effects: (dispatch) => ({
     async getAll() {
       try {
-        const data = await fetch("http://localhost:8080/movies")
+        const data = await fetch( URL + "movies")
           .then((res) => res.json())
           .catch((error) =>
             console.log("Authorization failed: " + error.message)
@@ -44,7 +44,7 @@ export const movie = {
     async searchMoviesByNameAndActor(searchObj) {
       try {
         const data = await fetch(
-          "http://localhost:8080/movies/search?name=" +
+          URL + "movies/search?name=" +
             searchObj.name +
             "&actor=" +
             searchObj.actor
@@ -62,7 +62,7 @@ export const movie = {
     async getReviews(movieId) {
       try {
         const data = await fetch(
-          "http://localhost:8080/review/review-movie?movieId=" + movieId
+          URL + "review/review-movie?movieId=" + movieId
         )
           .then((res) => res.json())
           .catch((error) =>
@@ -90,7 +90,7 @@ export const movie = {
 
           console.log(obj.content + ";; " + obj.movieId + ";; " + obj.token );
           const { data } = await axios.post(
-            `http://localhost:8080/movies/${obj.movieId}/reviews`,
+            URL + `movies/${obj.movieId}/reviews`,
             formData,
             config
           );

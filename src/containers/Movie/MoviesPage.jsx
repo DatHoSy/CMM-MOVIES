@@ -9,34 +9,116 @@ import { BestSeller } from "components/Seller/Seller";
 import { useNavigate } from "react-router-dom";
 
 const StyleMovies = styled.div`
-   @media screen and (max-width: 1439px) {
-        .banner {
-            .banner-left {
-                top: 100px;
-                left: 35px;
-                gap: 15px;
-            }
-            .movie-bg {
-                width: 1024px;
-            }
-            .movie-name img {
-                width: 400px;
-            }
-            .movie-logo img {
-                width: 120px;
-            }
-            .movie-rate img {
-                width: 120px;
-            }
-            .description {
-                width: 385px;
-                margin: 0;
-            }
-            .banner-right {
-                top: 245px;
+    .genres {
+        width: 1440px;
+        .buttonGenres {
+            display: none;
+        }
+    }
+    
+    .search-input {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        margin-top: 30px;
+        input {
+            flex-basis: 30%;
+            border-radius: 5px;
+            height: 32px;
+            color: #da9999;
+            text-indent: 10px;
+            font-size: 20px;
+        }
+    }
+    .searchIcon {
+        margin-top: 20px;
+        position: relative;
+        display: flex;
+        justify-content: space-evenly;
+        img {
+            padding: 5px;
+            position: absolute;
+            right: 650px;
+            top: 2px;
+        }
+    }
+    .movies {
+        margin-top: 30px;
+        div.title {
+            span {
+                margin-left: 50px ;
+                font-size: 24px;
+                font-weight: 400;
+                line-height: 22px;
+                border-bottom: 1px solid #ffff;
+                color: #ffff;
             }
         }
+        .flex-movie {
+            width: 1440px;
+            margin: 0 50px;
+            margin-top: 30px;
+            display: flex;
+            gap: 50px;
+            flex-wrap: wrap;
+            .flex-basis-card {
+                    width: 210px;
+                    img {
+                        width: 210px;
+                        object-fit: cover;
+                    }
+                    .card button {
+                        right: 60px;
+                    }
+                }
+        }
+       
+        #load-more {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-evenly;
+        }
+    }
+    .card:hover {
+        transform: scale(1.1);
+        transition: all 0.5s ease-out ;
+    }
+   @media screen and (max-width: 1439px) {
+        .carousel {
+        width: 1024px;
+        a.prev{
+            left: 130px;
+        }
+        a.next {
+            right: 130px;
+        }
+        .banner-left {
+            top: 100px;
+            left: 35px;
+            gap: 15px;
+        }
+        .movie-bg {
+            width: inherit;
+        }
+        .movie-name img {
+            width: 400px;
+        }
+        .movie-logo img {
+            width: 120px;
+        }
+        .movie-rate img {
+            width: 120px;
+        }
+        .description {
+            width: 385px;
+            margin: 0;
+        }
+        .banner-right {
+            top: 245px;
+        }
+        }
         .genres {
+            width: 1024px;
             .title {
                 padding: 30px 10px;
             }
@@ -63,6 +145,26 @@ const StyleMovies = styled.div`
             }
             .genres-content {
                 padding-bottom: 35px;
+            }
+        }
+        .searchIcon {
+                img {
+                    right: 495px;
+                }
+            }
+        .movies {
+            .flex-movie {
+                width: 1024px;
+                .flex-basis-card {
+                    width: 160px;
+                    img {
+                        width: 160px;
+                        object-fit: cover;
+                    }
+                    .card button {
+                        right: 60px;
+                    }
+                }
             }
         }
     }
@@ -267,67 +369,8 @@ const StyleMovies = styled.div`
             }
         }
     }
-    .genres {
-        .buttonGenres {
-            display: none;
-        }
-    }
-    .search-input {
-        display: flex;
-        justify-content: center;
-        gap: 20px;
-        margin-top: 30px;
-        input {
-            flex-basis: 30%;
-            border-radius: 5px;
-            height: 32px;
-            color: #da9999;
-            text-indent: 10px;
-            font-size: 20px;
-        }
-    }
-    .searchIcon {
-        margin-top: 20px;
-        position: relative;
-        display: flex;
-        justify-content: space-evenly;
-        img {
-            padding: 5px;
-            position: absolute;
-            right: 650px;
-            top: 2px;
-        }
-    }
-    .moives {
-        margin-top: 30px;
-        div.title {
-            span {
-                margin-left: 50px ;
-                font-size: 24px;
-                font-weight: 400;
-                line-height: 22px;
-                border-bottom: 1px solid #ffff;
-                color: #ffff;
-            }
-        }
-        .flex-movie {
-            width: 1340px;
-            margin: 0 50px;
-            margin-top: 30px;
-            display: flex;
-            gap: 50px;
-            flex-wrap: wrap;
-        }
-        #load-more {
-            margin-top: 20px;
-            display: flex;
-            justify-content: space-evenly;
-        }
-    }
-    .card:hover {
-        transform: scale(1.1);
-        transition: all 0.5s ease-out ;
-    }
+    
+    
 `
 
 export const MoviesPage = () => {
@@ -413,7 +456,7 @@ export const MoviesPage = () => {
                     </Button>
                     <img src={searchIcon} alt="iconSearch" />
                 </div>
-            <div className="moives">
+            <div className="movies">
                 <div className="title">
                     <span>Movies</span>
                 </div>

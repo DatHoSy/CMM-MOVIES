@@ -7,14 +7,21 @@ import styled from "styled-components";
 
 const StyledHomePage = styled.div`
   @media screen and (max-width: 1439px) {
-    .banner {
+    .carousel {
+      width: 1024px;
+      a.prev{
+        left: 130px;
+      }
+      a.next {
+        right: 130px;
+      }
       .banner-left {
         top: 100px;
         left: 35px;
         gap: 15px;
       }
       .movie-bg {
-        width: 1024px;
+        width: inherit;
       }
       .movie-name img {
         width: 400px;
@@ -34,18 +41,21 @@ const StyledHomePage = styled.div`
       }
     }
     .showcase {
-      height: 160px;
+      height: 200px;
+      width: 1024px;
       .showcard11,
       .showcard12 {
         display: none;
       }
       .card {
         .avatar img {
+          height: 125px;
           width: 75px;
         }
       }
     }
     .genres {
+      width: 1024px;
       .title {
         padding: 30px 10px;
       }
@@ -73,6 +83,11 @@ const StyledHomePage = styled.div`
         padding-bottom: 35px;
       }
     }
+    div {
+      .container {
+        width: 1024px;
+      }
+    }
     .grid-movie {
       margin: 0 35px;
       .grid-content {
@@ -81,11 +96,15 @@ const StyledHomePage = styled.div`
           height: 240px;
         }
         .card button {
-          right: 75px;
+          right: 110px;
+        }
+        .grid-block1 > div, .grid-block2 > div {
+          width: 210px;
         }
       }
     }
   }
+
   @media screen and (max-width: 1023px) {
     .banner {
       .banner-left {
@@ -466,32 +485,6 @@ const StyledHomePage = styled.div`
         width: 100vw;
         align-items: center;
         
-    }
-    
-    .BrainhubCarousel__trackContainer{
-        padding-top: 30px;
-        width: 65vw;
-        padding-left: 30px;
-        gap:10px;
-        
-    }
-    .BrainhubCarouselItem{
-        width: 300px;
-        
-       
-    }
-    .BrainhubCarousel__arrowRight{
-        border-radius: 50%;
-        margin-left: 10px;
-        background-color:red;
-    }
-    .BrainhubCarousel__arrowLeft{
-        border-radius: 50%;
-        margin-right: 10px;
-        background-color:red;
-    }
-    .BrainhubCarouselItem--active{
-        scale: 1.2;
     }
     .carousel-wrapper{
     font-family: sans-serif;

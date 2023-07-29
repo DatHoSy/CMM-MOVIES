@@ -36,7 +36,7 @@ export const user = {
         };
 
         const { data } = await axios.post(
-          `http://localhost:8080/signin`,
+          URL + `/signin`,
           formData,
           config
         );
@@ -57,7 +57,7 @@ export const user = {
         };
 
         const { data } = await axios.post(
-          `http://localhost:8080/signup`,
+          URL + `signup`,
           formData,
           config
         );
@@ -77,7 +77,7 @@ export const user = {
           },
         };
         const { data } = await axios.post(
-          `http://localhost:8080/order/check-user-package`,
+          URL + `order/check-user-package`,
           "",
           config
         );
@@ -98,7 +98,7 @@ export const user = {
         };
 
         const { data } = await axios.post(
-          `http://localhost:8080/order/buyPackage?idPackage=` + obj.idPackage,
+          URL + `order/buyPackage?idPackage=` + obj.idPackage,
           "",
           config
         );
@@ -121,7 +121,7 @@ export const user = {
 
         console.log(token);
         const { data } = await axios.post(
-          `http://localhost:8080/user/getUserByToken`,
+          URL + `user/getUserByToken`,
           "",
           config
         );

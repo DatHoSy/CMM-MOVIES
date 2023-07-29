@@ -22,7 +22,7 @@ export const order = {
 
         // console.log(token);
         const { data } = await axios.get(
-          `http://localhost:8080/order`,
+          URL + "order",
           "",
           config
         );

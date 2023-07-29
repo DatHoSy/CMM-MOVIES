@@ -9,6 +9,7 @@ import Input from "components/Input";
 import EmailIcon from "../../assets/email-icon.svg";
 import PasswordIcon from "../../assets/password-icon.svg";
 import { Divider, Switch } from "antd";
+import { toast } from "react-toastify";
 
 
 
@@ -229,7 +230,8 @@ const Login = () => {
             localStorage.setItem("userToken", token);
             navigate("/");
         } else {
-            alert("Login Fail!");
+            // alert("Login Fail!");
+            toast.success("Login Fail!");
         }
     }
     const signUp = () => {

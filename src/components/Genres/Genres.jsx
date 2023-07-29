@@ -7,6 +7,8 @@ import { useEffect } from "react";
 
 
 const StyledGenres = styled.div`
+display: flex;
+    justify-content: space-around;
     .genres {
         .title {
             display: flex;

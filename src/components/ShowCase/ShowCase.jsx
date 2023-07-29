@@ -5,6 +5,8 @@ import { useNavigate } from "react-router-dom";
 import { styled } from "styled-components";
 
 const StyledShowCase = styled.div`
+display: flex;
+justify-content: space-around;
     .showcase {
         display: flex;
         width: 100vw;

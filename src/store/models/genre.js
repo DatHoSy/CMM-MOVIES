@@ -1,3 +1,4 @@
+import { URL } from "./evm";
 export const genre = {
     state: {
         genres: []
@@ -13,7 +14,7 @@ export const genre = {
     effects: (dispatch) => ({
         async getAll() {
             try {
-                const data = await fetch('http://localhost:8080/genres')
+                const data = await fetch(URL + 'genres')
                     .then(res => res.json())
                     .catch(error => console.log('Authorization failed: ' + error.message));
                 this.setData(data.data);
