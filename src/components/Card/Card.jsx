@@ -53,7 +53,7 @@ export const Card = ({title, genres, srcImg, width, height, isGrid, title_center
                 <span className="style-title">{title}</span>
                 {isGrid ? 
                 (<>
-                    <span className="genres">{genres}</span>
+                    <span className="genres-card">{genres}</span>
                     <Button title={"7.5"} text_color={"white"} width={"40px"} height={"19px"} radius={"40px"} border_custom={"2px solid transparent"} font_size_text={"12px"}></Button>
                 </>)
                  : ""}
