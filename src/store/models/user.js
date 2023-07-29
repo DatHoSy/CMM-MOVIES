@@ -119,7 +119,6 @@ export const user = {
           },
         };
 
-        console.log(token);
         const { data } = await axios.post(
           URL + `user/getUserByToken`,
           "",

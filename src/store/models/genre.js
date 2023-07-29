@@ -14,9 +14,19 @@ export const genre = {
     effects: (dispatch) => ({
         async getAll() {
             try {
-                const data = await fetch(URL + 'genres')
-                    .then(res => res.json())
-                    .catch(error => console.log('Authorization failed: ' + error.message));
+                const config = {
+                    headers: {
+                      Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbjEyM0BnbWFpbC5jb20ifQ.n-QyyCePf3p7FrKYbNqoFxHLvJ0e-LxY1-g1LOowmtc",
+                    },
+                  };
+                  const { data } = await axios.get(
+                    URL + "genres",
+                    "",
+                    config
+                  );
+                  if (data.statusCode != 200) {
+                    return null;
+                  }
                 this.setData(data.data);
             } catch (error) {
                 return null;
