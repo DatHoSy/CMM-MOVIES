@@ -35,8 +35,7 @@ export const movie = {
           },
         };
         const { data } = await axios.get(
-          URL + "movies",
-          "",
+          `${URL}movies`,
           config
         );
         if (data.statusCode != 200) {
@@ -52,7 +51,7 @@ export const movie = {
     async searchMoviesByNameAndActor(searchObj) {
       try {
         const data = await fetch(
-          URL + "movies/search?name=" +
+          `${URL}movies/search?name=` +
             searchObj.name +
             "&actor=" +
             searchObj.actor
@@ -69,13 +68,18 @@ export const movie = {
     },
     async getReviews(movieId) {
       try {
-        const data = await fetch(
-          URL + "review/review-movie?movieId=" + movieId
-        )
-          .then((res) => res.json())
-          .catch((error) =>
-            console.log("Authorization failed: " + error.message)
-          );
+        const config = {
+          headers: {
+            Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbjEyM0BnbWFpbC5jb20ifQ.n-QyyCePf3p7FrKYbNqoFxHLvJ0e-LxY1-g1LOowmtc",
+          },
+        };
+        const { data } = await axios.get(
+          `${URL}review/review-movie?movieId=` + movieId,
+          config
+        );
+        if (data.statusCode != 200) {
+          return null;
+        }
         this.setDataReviews(data.data);
         return data.data;
       } catch (error) {
@@ -95,7 +99,7 @@ export const movie = {
             },
           };
           const { data } = await axios.post(
-            URL + `movies/${obj.movieId}/reviews`,
+            `${URL}movies/${obj.movieId}/reviews`,
             formData,
             config
           );

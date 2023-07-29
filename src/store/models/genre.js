@@ -1,3 +1,4 @@
+import axios from "axios";
 import { URL } from "./evm";
 export const genre = {
     state: {
@@ -6,7 +7,7 @@ export const genre = {
     reducers: {
         setData(state, genres) {
             return {
-                state,
+                ...state,
                 genres
             }
         },
@@ -20,17 +21,17 @@ export const genre = {
                     },
                   };
                   const { data } = await axios.get(
-                    URL + "genres",
-                    "",
+                    `${URL}genres`,
                     config
                   );
-                  if (data.statusCode != 200) {
+                  if (data.statusCode != 0) {
                     return null;
                   }
                 this.setData(data.data);
             } catch (error) {
                 return null;
             }
+            
         },
     }),
 };

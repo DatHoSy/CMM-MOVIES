@@ -36,7 +36,7 @@ export const user = {
         };
 
         const { data } = await axios.post(
-          URL + `/signin`,
+          `${URL}/signin`,
           formData,
           config
         );
@@ -57,7 +57,7 @@ export const user = {
         };
 
         const { data } = await axios.post(
-          URL + `signup`,
+          `${URL}signup`,
           formData,
           config
         );
@@ -77,7 +77,7 @@ export const user = {
           },
         };
         const { data } = await axios.post(
-          URL + `order/check-user-package`,
+          `${URL}order/check-user-package`,
           "",
           config
         );
@@ -98,7 +98,7 @@ export const user = {
         };
 
         const { data } = await axios.post(
-          URL + `order/buyPackage?idPackage=` + obj.idPackage,
+          `${URL}order/buyPackage?idPackage=` + obj.idPackage,
           "",
           config
         );
@@ -120,7 +120,7 @@ export const user = {
         };
 
         const { data } = await axios.post(
-          URL + `user/getUserByToken`,
+          `${URL}user/getUserByToken`,
           "",
           config
         );
