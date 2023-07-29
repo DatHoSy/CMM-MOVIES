@@ -222,7 +222,7 @@ const Login = () => {
             password: password,
         };
         const token = await dispatch.user.login(formData);
-        setTimeout(nav(token), 2000);
+        nav(token);
     };
     const nav = (token) => {
         if (token != null) {
@@ -230,8 +230,8 @@ const Login = () => {
             localStorage.setItem("userToken", token);
             navigate("/");
         } else {
-            // alert("Login Fail!");
-            toast.success("Login Fail!");
+            alert("Login Fail!");
+            // toast.success("Login Fail!");
         }
     }
     const signUp = () => {

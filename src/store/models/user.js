@@ -1,5 +1,5 @@
 import axios from "axios";
-
+import { URL } from "./evm";
 export const user = {
   state: {
     token: null,
@@ -29,15 +29,15 @@ export const user = {
   effects: (dispatch) => ({
     async login(formData) {
       try {
+        console.log(formData);
         const config = {
           headers: {
             "Content-Type": "multipart/form-data",
-            Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbjEyM0BnbWFpbC5jb20ifQ.n-QyyCePf3p7FrKYbNqoFxHLvJ0e-LxY1-g1LOowmtc",
           },
         };
 
         const { data } = await axios.post(
-          `${URL}/signin`,
+          `${URL}signin`,
           formData,
           config
         );
@@ -54,7 +54,6 @@ export const user = {
         const config = {
           headers: {
             "Content-Type": "multipart/form-data",
-            Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbjEyM0BnbWFpbC5jb20ifQ.n-QyyCePf3p7FrKYbNqoFxHLvJ0e-LxY1-g1LOowmtc",
           },
         };
 
@@ -80,7 +79,6 @@ export const user = {
         };
         const { data } = await axios.post(
           `${URL}order/check-user-package`,
-          "",
           config
         );
         if (data.statusCode != 200) {
@@ -101,7 +99,6 @@ export const user = {
 
         const { data } = await axios.post(
           `${URL}order/buyPackage?idPackage=` + obj.idPackage,
-          "",
           config
         );
         if (data.statusCode != 200) {
@@ -123,7 +120,6 @@ export const user = {
 
         const { data } = await axios.post(
           `${URL}user/getUserByToken`,
-          "",
           config
         );
         console.log(data);

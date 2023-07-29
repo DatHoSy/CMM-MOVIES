@@ -1,4 +1,5 @@
 import axios from "axios";
+import { URL } from "./evm";
 export const order = {
   state: {
     orders: [],
@@ -23,7 +24,6 @@ export const order = {
         // console.log(token);
         const { data } = await axios.get(
           `${URL}order`,
-          "",
           config
         );
         console.log(data);
