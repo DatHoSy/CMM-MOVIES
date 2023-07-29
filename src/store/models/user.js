@@ -32,6 +32,7 @@ export const user = {
         const config = {
           headers: {
             "Content-Type": "multipart/form-data",
+            Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbjEyM0BnbWFpbC5jb20ifQ.n-QyyCePf3p7FrKYbNqoFxHLvJ0e-LxY1-g1LOowmtc",
           },
         };
 
@@ -53,6 +54,7 @@ export const user = {
         const config = {
           headers: {
             "Content-Type": "multipart/form-data",
+            Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbjEyM0BnbWFpbC5jb20ifQ.n-QyyCePf3p7FrKYbNqoFxHLvJ0e-LxY1-g1LOowmtc",
           },
         };
 
