@@ -231,7 +231,6 @@ const Login = () => {
             navigate("/");
         } else {
             alert("Login Fail!");
-            // toast.success("Login Fail!");
         }
     }
     const signUp = () => {

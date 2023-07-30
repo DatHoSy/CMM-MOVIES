@@ -150,10 +150,10 @@ const PackMovie = () => {
             <img src={CancelIcon} alt="" />
           </GridItem>
           <GridItem>
-            <img className="big-icon" src={CheckIcon} alt="" />
+          <img src={CancelIcon} alt="" />
           </GridItem>
           <GridItem>
-            <img src={CancelIcon} alt="" />
+          <img className="big-icon" src={CheckIcon} alt="" />
           </GridItem>
 
           <GridItem className="title-pack-item">Hollywood Movies </GridItem>

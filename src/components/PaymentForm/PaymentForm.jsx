@@ -202,7 +202,6 @@ const PaymentForm = () => {
     obj.token = token;
     const isBuy = await dispatch.user.buyPackage(obj);
     // if (isBuy) {
-    //     alert('Buy Success!');
     //     toast.success("successfully payment");
     //     navigate("/");
     // } else {
