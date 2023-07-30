@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { LockOutlined } from "@ant-design/icons";
 import {
   Input,
   Button,
@@ -148,6 +149,20 @@ const StyleUserProfile = styled.div`
     font-size: 18px;
     border: none;
   }
+  .custom-panel-header {
+    font-size: 16px;
+    color: #fff; /* You can change the color to your preferred color */
+    font-weight: bold;
+  }
+
+  /* Custom styles for panel header icon */
+  .custom-panel-icon {
+    svg {
+      fill: #fff;
+    }
+    font-size: 16px;
+    margin-right: 8px; /* Add some space between the icon and text */
+  }
 `;
 const dataUser = {
   id: 1,
@@ -167,7 +182,8 @@ const UserProfile = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const dispatch = useDispatch();
   let ordersData = useSelector((state) => state.order.orders);
-
+  let userDatass = useSelector((state) => state.user.user);
+  console.log(userDatass);
   useEffect(() => {
     const tokenJSON = localStorage.getItem("userToken");
     const obj = {};
@@ -179,8 +195,9 @@ const UserProfile = () => {
   }, []);
   const findUserOrder = () => {
     const matchingOrder = ordersData.find(
-      (order) => order.user.id === dataUser.id
+      (order) => order.user.id === userDatass.id
     );
+    console.log(matchingOrder);
     return matchingOrder;
   };
 
@@ -189,9 +206,8 @@ const UserProfile = () => {
   const [isResetPasswordVisible, setIsResetPasswordVisible] = useState(false);
   const [resetPasswordValues, setResetPasswordValues] = useState({
     email: dataUser.email,
-    oldPassword: "",
+
     newPassword: "",
-    confirmNewPassword: "",
   });
   const toggleResetPasswordVisible = () => {
     setIsResetPasswordVisible(!isResetPasswordVisible);
@@ -244,8 +260,7 @@ const UserProfile = () => {
           <div className="more">
             <h4>
               Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since the 1500s.
+              industry.
             </h4>
           </div>
         </div>
@@ -257,52 +272,70 @@ const UserProfile = () => {
             </p>
           </div>
           <img src={line}></img>
+          {userDatass !== null && (
+            <div>
+              <div className="change-inform">
+                <div>
+                  <h1>Email:</h1>
+                  <p id="email"> {userDatass.email}</p>
+                </div>
+              </div>
 
-          <div className="change-inform">
-            <div>
-              <h1>Email:</h1>
-              <p id="email"> {dataUser.email}</p>
+              <div className="change-inform">
+                <div>
+                  <h1>Username:</h1>
+                  <p>{userDatass.username}</p>
+                </div>
+              </div>
+              <div className="change-inform">
+                <div>
+                  <h1>Genre:</h1>
+                  <p>{userDatass.gender === true ? "Male" : "Female"}</p>
+                </div>
+              </div>
+              <div className="change-inform">
+                <div>
+                  <h1>Birthday:</h1>
+                  <p>
+                    {" "}
+                    {userDatass.birthday == null
+                      ? "No information"
+                      : userDatass.birthday.slice(0, 10)}
+                  </p>
+                </div>
+              </div>
             </div>
-          </div>
+          )}
 
-          <div className="change-inform">
-            <div>
-              <h1>Username:</h1>
-              <p>{dataUser.username}</p>
-            </div>
-          </div>
-          <div className="change-inform">
-            <div>
-              <h1>Genre:</h1>
-              <p>{dataUser.gender === true ? "Male" : "Female"}</p>
-            </div>
-          </div>
-          <div className="change-inform">
-            <div>
-              <h1>Birthday:</h1>
-              <p> {dataUser.birthday.slice(0, 10)}</p>
-            </div>
-          </div>
           <div className="change-inform ">
             <h1>Billing Details:</h1>
           </div>
           {matchingOrder ? (
             <>
-              <p>Yes</p>
               {/* Display the details of the matching order here */}
-              <div>
+              <div style={{ marginLeft: "10px" }}>
                 <h1>Order ID: {matchingOrder.id}</h1>
-                <h2>Order Date: {matchingOrder.pack.name}</h2>
+                <h2>
+                  Order Date: {matchingOrder.pack == 2 ? "MONTH" : "YEAR"}
+                </h2>
                 {/* Add more details you want to display */}
               </div>
             </>
           ) : (
-            <p>No</p>
+            <p>No Package VIP</p>
           )}
           <img src={line}></img>
           <Button onClick={toggleResetPasswordVisible}>Reset Password</Button>
           <Collapse activeKey={isResetPasswordVisible ? "1" : ""}>
-            <Panel header="Reset Password" key="1">
+            <Panel
+              header={
+                <div className="custom-panel-header">
+                  <LockOutlined className="custom-panel-icon" />
+                  Reset Password
+                </div>
+              }
+              key="1"
+            >
               <Form onFinish={handleResetPassword}>
                 <div className="input-group">
                   <Form.Item

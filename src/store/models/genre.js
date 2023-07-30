@@ -22,7 +22,6 @@ export const genre = {
                   };
                   const { data } = await axios.get(
                     `${URL}genres`,
-                    "",
                     config
                   );
                   if (data.statusCode != 200) {

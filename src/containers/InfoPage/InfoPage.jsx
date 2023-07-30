@@ -191,13 +191,12 @@ font-family: 'Blinker';
 
 `
 const Banner = styled.div`
-@media screen and (min-width: 1441px){
-    height : 100vh;
-}
 background-image: url(${mandobackbround});
 background-size: cover;
-/* width: 100vw; */
-height: 200vh;
+height: 170vh;
+@media screen and (min-width: 1341px){
+    height : 170vh;
+}
 `
 const ListComments = styled.div`
     display: flex;
