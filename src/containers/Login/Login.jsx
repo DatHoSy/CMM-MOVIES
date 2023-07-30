@@ -171,15 +171,13 @@ const Login = () => {
         setSignInClicked(true);
     };
     function validateEmail(username) {
-        // Biểu thức chính quy để kiểm tra định dạng email
-        var pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        // var pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-        // Kiểm tra định dạng email bằng biểu thức chính quy
-        if (pattern.test(username)) {
-            return true;
-        } else {
-            return false;
-        }
+        // if (pattern.test(username)) {
+        //     return true;
+        // } else {
+        //     return false;
+        // }
     }
 
     const setDarkMode = () => {
@@ -197,15 +195,15 @@ const Login = () => {
 
     // Xử lý sự kiện thay đổi của ô input email
     const handleEmailChange = (e) => {
-        const email = e.target.value;
-        setUsername(email);
+        // const email = e.target.value;
+        // setUsername(email);
 
-        // Kiểm tra định dạng email và cập nhật trạng thái hợp lệ
-        if (validateEmail(email)) {
-            setValidEmail(true);
-        } else {
-            setValidEmail(false);
-        }
+        // // Kiểm tra định dạng email và cập nhật trạng thái hợp lệ
+        // if (validateEmail(email)) {
+        //     setValidEmail(true);
+        // } else {
+        //     setValidEmail(false);
+        // }
     };
 
     useEffect(() => {
@@ -222,7 +220,7 @@ const Login = () => {
             password: password,
         };
         const token = await dispatch.user.login(formData);
-        nav(token);
+        setTimeout(nav(token), 2000);
     };
     const nav = (token) => {
         if (token != null) {
@@ -311,10 +309,10 @@ const Login = () => {
                             bg_color="var(--bg-color-input)"
                             fontSize={"22px"}
                             radius={"50px"}
-                            type="submit"
+                            type="button"
                             id="btn-signup"
                             className="btn-signup"
-                            onClick={handleSignInClick}
+                            onClick={() => submitHandler()}
                         >
                         </Button>
                         <Divider

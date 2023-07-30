@@ -35,7 +35,6 @@ export const user = {
             "Content-Type": "multipart/form-data",
           },
         };
-
         const { data } = await axios.post(
           `${URL}signin`,
           formData,
@@ -102,12 +101,10 @@ export const user = {
           config
         );
         if (data.statusCode != 200) {
-          console.log("status: " + data.statusCode);
           return null;
         }
         return data.data;
       } catch (error) {
-        console.log("exception: " + error);
         return null;
       }
     },
