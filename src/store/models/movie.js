@@ -36,6 +36,7 @@ export const movie = {
         };
         const { data } = await axios.get(
           `${URL}movies`,
+          "",
           config
         );
         if (data.statusCode != 200) {
@@ -75,6 +76,7 @@ export const movie = {
         };
         const { data } = await axios.get(
           `${URL}review/review-movie?movieId=` + movieId,
+          "",
           config
         );
         if (data.statusCode != 200) {
