@@ -78,6 +78,7 @@ export const user = {
         };
         const { data } = await axios.post(
           `${URL}order/check-user-package`,
+          "",
           config
         );
         if (data.statusCode != 200) {
@@ -95,9 +96,9 @@ export const user = {
             Authorization: `Bearer ${obj.token}`,
           },
         };
-
         const { data } = await axios.post(
           `${URL}order/buyPackage?idPackage=` + obj.idPackage,
+          "",
           config
         );
         if (data.statusCode != 200) {
@@ -119,6 +120,7 @@ export const user = {
 
         const { data } = await axios.post(
           `${URL}user/getUserByToken`,
+          "",
           config
         );
         console.log(data);
